@@ -1,0 +1,53 @@
+﻿<a class="btn btn-primary" data-ng-click="ctrl.addCustomer()">Добавить поставщика</a>
+
+<table class="table table-striped table-condensed table-hover vertical-align">
+    <thead>
+        <tr>
+            <th>*</th>
+            <th>ИНН</th>
+            <th>Название</th>
+            <th>*</th>
+        </tr>
+    </thead>
+    <tbody data-ng-repeat="c in ctrl.customers">
+        <tr class="repeat-animation">
+            <td>
+                <a class="btn btn-primary" data-ng-click="ctrl.getDetails(c)">
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+            </td>
+            <td><a data-ng-click="ctrl.editCustomer(c)">{{c.Inn}}</a></td>
+            <td><a data-ng-click="ctrl.editCustomer(c)">{{c.FullName}}</a></td>
+            <td>
+                <a class="btn btn-primary" data-ng-click="ctrl.removeCustomer(c.Inn)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+        <!--<tr id={{c.Inn}} ng-hide="c.isRowHidden" ng-init="getDetails(c)">
+            <td></td>
+            <td colspan="3">
+                <table class="table table-striped table-condensed table-hover vertical-align">
+                    <thead>
+                        <tr>
+                            <th>Кол-во</th>
+                            <th>Валюта</th>
+                            <th>Сумма</th>
+                            <th>*</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="detail in ctrl.Details">
+                        <td>{{detail.count}}</td>
+                        <td>{{detail.currency}}</td>
+                        <td>{{detail.sum}}</td>
+                        <td>
+                            <a href="#" class="btn btn-primary" ng-click="removeDetail(detail.num)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tbody>
+                </table>
+            </td>
+        </tr>-->
+    </tbody>
+</table>

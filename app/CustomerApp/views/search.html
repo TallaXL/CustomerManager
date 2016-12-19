@@ -1,0 +1,45 @@
+﻿<div layout="column" class="ng-scope layout-column">
+    <md-content class="layout-padding _md layout-column" layout-padding="" layout="column">
+        <form name="searchForm" class="ng-pristine ng-valid ng-valid-required" ng-submit="$event.preventDefault()">
+            <p>Строка поиска по ИНН</p>
+            <md-autocomplete flex
+                             ng-disabled="ctrl.isDisabled"
+                             md-item-text="item.Inn"
+                             md-items="item in ctrl.querySearch(ctrl.searchText)"
+                             md-no-cache="ctrl.noCache"
+                             md-search-text-change=""
+                             md-search-text="ctrl.searchText"
+                             md-selected-item="ctrl.selectedItem"
+                             md-selected-item-change="ctrl.selectedItemChange(item)"
+                             placeholder="Введите ИНН поставщика"
+                             md-floating-label="Поставщик"
+                             md-menu-class="autocomplete-custom-template"
+                             md-input-minlength="3"
+                             md-input-maxlength="12"
+                             md-input-name="autocompleteField"
+                             required>
+                <md-item-template>
+                    <span class="item-title">
+                        <span> {{item.FullName}} </span>
+                    </span>
+                    <span class="item-metadata">
+                        <span class="item-metastat" md-highlight-text="ctrl.searchText">
+                            Инн: {{item.Inn}}
+                        </span>
+                    </span>
+                </md-item-template>
+                <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                    <div ng-message="required">Вы должны указать значение</div>
+                    <div ng-message="minlength">Введеное значение не может быть меньше 2-х знаков</div>
+                    <div ng-message="maxlength">Введенное значение слишком велико</div>
+                </div>
+            </md-autocomplete>
+        </form>
+    </md-content>
+</div>
+
+<p ng-hide="!ctrl.noSummaryFound">Данные не найдены</p>
+<p ng-hide="ctrl.noSummaryFound">Результат:</p>
+<div layout="column" class="ng-scope layout-column" data-ng-repeat="s in ctrl.summary">
+    <div class="span4">Кол-во: {{s.Count}}, Сумма в валюте {{s.Currency}}: {{s.Sum}}</div>
+</div>

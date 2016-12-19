@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample AngularJS Application</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="Content/dropdownlist.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css">
+    <link rel="stylesheet" href="https://material.angularjs.org/1.1.1/docs.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="scripts/jquery-2.1.1.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="customersApp" ng-controller="customerController as ctrl">
+    <div class="container">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <ul  id="menu_area" class="nav navbar-nav navBarPadding custom">
+                <li class="nav-item active"><a data-toggle="tab" id="menu_text" href="#/search">Поиск</a></li>
+                <li class="nav-item"><a data-toggle="tab" id="menu_text" href="#/edit">Редактирование</a></li>
+                <li class="nav-item"><a data-toggle="tab" id="menu_text" href="#/about">О программе</a></li>
+            </ul>
+        </nav>
+
+        <div class="slide-animation-container">
+            <div ng-view id="ng-view" class="slide-animation"></div>
+        </div>
+
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/angular-route.js"></script>
+        <script src="scripts/angular-animate.min.js"></script>
+        <script src="scripts/angular-aria.min.js"></script>
+        <script src="scripts/angular-messages.min.js"></script>
+        <script src="scripts/angular-material.min.js"></script>
+        <script src="scripts/ui-bootstrap-tpls-1.3.3.js"></script>
+
+        <script src="app/customerApp/app.js"></script>
+        <script src="app/customerApp/services/modalService.js"></script>
+        <script src="app/customerApp/services/customerService.js"></script>
+        <script src="app/customerApp/controllers/customerController.js"></script>
+        <script src="app/customerApp/controllers/customerEditController.js"></script>
+
+    </div>
+</body>
+</html>
